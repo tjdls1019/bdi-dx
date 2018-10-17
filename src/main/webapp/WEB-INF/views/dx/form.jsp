@@ -9,7 +9,7 @@
 <script>
 	var dxForm,dxWin;
 	var loginFormData = [
-		{type:'fieldset', name:'login', label:'login',inputWidth:'auto',
+		{type:'fieldset', name:'login', label:'login', inputWidth:'auto',
 			list:[
 				{type:'input',name:'id',label:'ID',validate:'ValidAplhaNumeric',required:true},
 				{type:'password',name:'pwd',label:'PWD',validate:'ValidAplhaNumeric',required:true},

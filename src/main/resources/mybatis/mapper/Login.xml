@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Login">
+	<select id="selectLoginList" resultType="com.bdi.sp.vo.Login">
+	select linum as id, l.* from login_info l
+	<where>
+	<if test="linum!=null"> and linum=#{linum}</if>
+	<if test="liname!=null"> and liname=#{liname}</if>
+	<if test="liid!=null"> and liid=#{liid}</if>
+	<if test="lipwd1!=null"> and lipwd1=#{lipwd1}</if>
+	<if test="lipwd2!=null"> and lipwd2=#{lipwd2}</if>
+	<if test="liemail!=null"> and liemail=#{liemail}</if>
+	<if test="liaddress!=null"> and liaddress=#{liaddress}</if>
+	<if test="lisex!=null"> and lisex=#{lisex}</if>
+	<if test="libirth!=null"> and libirth=#{libirth}</if>
+	<if test="lire!=null"> and lire=#{lire}</if>
+	</where>
+	</select>
+	
+	<select id="selectLogin" resultType="com.bdi.sp.vo.Login">
+  	select * from login_info
+  	where linum=#{linum}
+  </select>
+  
+  <insert id="insertLogin" parameterType="com.bdi.sp.vo.Login">
+  insert into login_info(liname,liid,lipwd1,lipwd2,liemail,liaddress,lisex,libirth,lire)
+  values(#{liname},#{liid},#{lipwd1},#{lipwd2},#{liemail},#{liaddress},#{lisex},#{libirth},#{lire})
+  </insert>
+  
+  <update id="updateLogin" parameterType="com.bdi.sp.vo.Login">
+  	update login_info
+  	<set>
+  		<if test="liname!=null">liname=#{liname},</if>
+  		<if test="liid!=null">liid=#{liid},</if>
+  		<if test="lipwd1!=null">lipwd1=#{lipwd1},</if>
+  		<if test="lipwd2!=null">lipwd2=#{lipwd2},</if>
+  		<if test="liemail!=null">liemail=#{liemail},</if>
+  		<if test="liaddress!=null">liaddress=#{liaddress},</if>
+  		<if test="lisex!=null">lisex=#{lisex},</if>
+  		<if test="libirth!=null">libirth=#{libirth},</if>
+  		<if test="lire!=null">lire=#{lire},</if>
+  	</set>
+  	where linum=#{linum} 
+  </update>
+  
+  <delete id="deleteLogin" parameterType="com.bdi.sp.vo.Login">
+  	delete from login_info
+  	where linum=#{linum} 
+  </delete>
+  
+</mapper>

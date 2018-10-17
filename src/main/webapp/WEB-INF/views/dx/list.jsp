@@ -19,10 +19,10 @@
 		au.send({url:'/login',success:function(res){
 			res = JSON.parse(res);
 			dxGrid.parse(res,'js')
-		}})
+		}}) 
 	});
 </script>
 <body>
-	<div id="dxGrid" style="width:400px;height:300px"></div>
+	<div id="dxGrid" style="width:100%;height:100%"></div>
 </body>
 </html>

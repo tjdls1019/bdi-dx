@@ -26,8 +26,8 @@
 				{type:'password',name:'pwdcheck',label:'PWD CHECK',validate:'ValidAplhaNumeric',required:true},
 				{type:'input',name:'email',label:'EMAIL',required:true},
 				{type:'input',name:'address',label:'ADDRESS',required:true},
-				{type:'radio',name:'gender',label:'여',value:'여'},
-				{type:'radio',name:'gender',label:'남',value:'남'},
+				{type:'radio',name:'sex',label:'여',value:'여'},
+				{type:'radio',name:'sex',label:'남',value:'남'},
 				{type:'input',name:'birth',label:'BIRTH',required:true},
 				{type:'input',name:'recommender',label:'RECOMMENDER'},
 				{type:'button',name:'joinbtn',value:'JOIN'}
@@ -58,13 +58,17 @@
 							var pwdcheck = joinForm.getItemValue('pwdcheck');
 							var email = joinForm.getItemValue('email');
 							var address = joinForm.getItemValue('address');
-							var gender = joinForm.getItemValue('gender');
+							var sex = joinForm.getItemValue('sex');
 							var birth = joinForm.getItemValue('birth');
 							var recommender = joinForm.getItemValue('recommender');
+							if(sex==null) {
+								alert("성별을 체크해주세요");
+							}
 							var conf = {
 									url:'/login',
 									method:'POST',
-									param:JSON.stringify({id:id,pwd:pwd}),
+									param:JSON.stringify({name:name,id:id,pwd:pwd,pwdcheck:pwdcheck,email:email,
+										address:address,gender:gender,birth:birth,recommender:recommeder}),
 									success : function(res){
 										res = JSON.parse(res);
 										alert(res.msg);

@@ -18,7 +18,7 @@
 		dxGrid.init();
 		au.send({url:'/login',success:function(res){
 			res = JSON.parse(res);
-			jpGrid.parse(res,'js')
+			dxGrid.parse(res,'js')
 		}})
 	});
 </script>

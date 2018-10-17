@@ -66,9 +66,9 @@
 							}
 							var conf = {
 									url:'/login',
-									method:'PUT',
+									method:'POST',
 									param:JSON.stringify({name:name,id:id,pwd:pwd,pwdcheck:pwdcheck,email:email,
-										address:address,gender:gender,birth:birth,recommender:recommeder}),
+										address:address,gender:gender,birth:birth,recommender:recommender}),
 									success : function(res){
 										res = JSON.parse(res);
 										alert(res.msg);

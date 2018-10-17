@@ -15,7 +15,7 @@
 		dxGrid.setColumnIds('linum,liname,liid,liemail,liaddress,lisex,libirth,lire');
 		dxGrid.setColTypes('ro,ed,ed,ed,ed,ed,ed,ro');
 		dxGrid.init();
-		au.send({url:'/japans',success:function(res){
+		au.send({url:'/login',success:function(res){
 			res = JSON.parse(res);
 			jpGrid.parse(res,'js')
 		}})

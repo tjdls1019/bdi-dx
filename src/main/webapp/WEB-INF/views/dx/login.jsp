@@ -26,11 +26,8 @@
 				{type:'password',name:'pwdcheck',label:'PWD CHECK',validate:'ValidAplhaNumeric',required:true},
 				{type:'input',name:'email',label:'EMAIL',required:true},
 				{type:'input',name:'address',label:'ADDRESS',required:true},
-				{type:'input',name:'sex',label:'SEX',
-					list:[
-						{type:'radio',name:'gender',label:'여'},
-						{type:'radio',name:'gender',label:'남'},
-					],required:true},
+				{type:'radio',name:'gender',label:'여',value:'여'},
+				{type:'radio',name:'gender',label:'남',value:'남'},
 				{type:'input',name:'birth',label:'BIRTH',required:true},
 				{type:'input',name:'recommender',label:'RECOMMENDER'},
 				{type:'button',name:'joinbtn',value:'JOIN'}
@@ -48,15 +45,22 @@
 			if(name=='join'){
 				if(!dxWin){
 					dxWin = new dhtmlXWindows();
-					dxWin.createWindow('w1',0,0,250,450);
+					dxWin.createWindow('w1',0,0,250,600);
 					dxWin.window('w1').centerOnScreen();
 					var joinForm = new dhtmlXForm('joinForm', joinFormData);
 					dxWin.window('w1').attachObject('joinForm');
 					joinForm.attachEvent('onButtonClick',function(name){
 						if(name=='joinbtn'){
 							if(joinForm.validate()){
+							var name = joinForm.getItemValue('name');
 							var id = joinForm.getItemValue('id');
 							var pwd = joinForm.getItemValue('pwd');
+							var pwdcheck = joinForm.getItemValue('pwdcheck');
+							var email = joinForm.getItemValue('email');
+							var address = joinForm.getItemValue('address');
+							var gender = joinForm.getItemValue('gender');
+							var birth = joinForm.getItemValue('birth');
+							var recommender = joinForm.getItemValue('recommender');
 							var conf = {
 									url:'/login',
 									method:'POST',

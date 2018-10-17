@@ -14,7 +14,7 @@
 		dxGrid.setHeader('번호,이름,아이디,이메일,주소,성별,생년월일,추천인');
 		dxGrid.setColumnIds('linum,liname,liid,liemail,liaddress,lisex,libirth,lire');
 		dxGrid.setColTypes('ro,ed,ed,ed,ed,ed,ed,ro');
-		jpGrid.setColSorting('int,str,str,str,str,str,int,str')
+		dxGrid.setColSorting('int,str,str,str,str,str,int,str')
 		dxGrid.init();
 		au.send({url:'/login',success:function(res){
 			res = JSON.parse(res);

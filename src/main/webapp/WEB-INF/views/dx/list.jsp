@@ -8,7 +8,7 @@
 </head>
 <script>
 	var dxGrid;
-	function doInit() {
+	window.addEventListener('load', function() {
 		dxGrid = new dhtmlXGridObject('dxGrid');
 		dxGrid.setImagePath('${gridPath}');
 		dxGrid.setHeader('번호,이름,아이디,이메일,주소,성별,생년월일,추천인');

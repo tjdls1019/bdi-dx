@@ -32,8 +32,8 @@
   <update id="updateLogin" parameterType="com.bdi.sp.vo.Login">
   	update login_info
   	<set>
-  		<if test="liname!=null">liname=#{liname},</if>
   		<if test="liid!=null">liid=#{liid},</if>
+  		<if test="liname!=null">liname=#{liname},</if>
   		<if test="lipwd1!=null">lipwd1=#{lipwd1},</if>
   		<if test="lipwd2!=null">lipwd2=#{lipwd2},</if>
   		<if test="liemail!=null">liemail=#{liemail},</if>

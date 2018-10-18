@@ -35,7 +35,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login/{linum}", method=RequestMethod.POST)
-	public @ResponseBody int insertLogin(@ModelAttribute Login li, @PathVariable Integer linum) {
+	public @ResponseBody int insertLogin(@RequestBody Login li, @PathVariable Integer linum) {
 		logger.debug("login=>{}", li);
 		return ls.insertLogin(li);
 	}

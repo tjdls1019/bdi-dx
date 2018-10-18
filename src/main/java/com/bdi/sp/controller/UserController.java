@@ -14,41 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 	
 	
-	@RequestMapping(value="/login", method=RequestMethod.PUT)
-	public @ResponseBody Map<String,String> loginUp(@RequestBody Map<String,String> Uper){
-		Map<String,String> rMap = new HashMap<String,String>();
-		rMap.put("login","fail");
-		rMap.put("msg", "수정이안댐요");
-		if(Uper.get("id")==null) {
-			return rMap;
-		}
-		
-		if(Uper.get("name").equals("test")) {
-			if(Uper.get("id").equals("test")) {
-				if(Uper.get("pwd").equals("test")) {
-					if(Uper.get("pwdcheck").equals("test")) {
-						if(Uper.get("email").equals("test")) {
-							if(Uper.get("address").equals("test")) {
-								if(Uper.get("gender").equals("여")) {
-									if(Uper.get("birth").equals("test")) {
-										if(Uper.get("recommender").equals("test")) {
-											rMap.put("login", "success");
-											rMap.put("msg","수정성공.");
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-		return rMap;
-	}
-	
-	
-	
-
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public @ResponseBody Map<String,String> login(@RequestBody Map<String,String> user){
 		Map<String,String> rMap = new HashMap<String,String>();

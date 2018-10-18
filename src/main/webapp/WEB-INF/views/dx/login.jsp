@@ -34,6 +34,7 @@
 			]	
 		}
 	];
+	
 	function doInit() {
 		var forms = [
 			{type:'button',value:'회원가입', name:'join'},
@@ -65,10 +66,10 @@
 								alert("성별을 체크해주세요");
 							}
 							var conf = {
-									url:'/login',
-									method:'PUT',
+									url:'/login/${linum}',
+									method:'POST',
 									param:JSON.stringify({name:name,id:id,pwd:pwd,pwdcheck:pwdcheck,email:email,
-										address:address,gender:gender,birth:birth,recommender:recommeder}),
+										address:address,gender:gender,birth:birth,recommender:recommender}),
 									success : function(res){
 										res = JSON.parse(res);
 										alert(res.msg);

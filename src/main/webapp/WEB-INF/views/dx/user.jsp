@@ -17,17 +17,17 @@
 			<th>성별</th>
 			<th>생년월일</th>
 			<th>추천인</th>
+			
 		</tr>
 		<tr>
-			<td>${depart.dino}</td>
-			<td>${depart.diname}</td>
-			<td>${depart.didesc}</td>
-			<td>${depart.dicnt}</td>
-			<td>${depart.dino}</td>
-			<td>${depart.diname}</td>
-			<td>${depart.didesc}</td>
-			<td>${depart.dicnt}</td>
-			<td>${depart.dicnt}</td>
+			<td>${login.linum}</td>
+			<td>${login.liname}</td>
+			<td>${login.liid}</td>
+			<td>${login.liemail}</td>
+			<td>${login.liaddress}</td>
+			<td>${login.lisex}</td>
+			<td>${login.libirth}</td>
+			<td>${login.lire}</td>
 		</tr>
 		</table>
 <button onclick="go()">리스트 돌아가기</button>

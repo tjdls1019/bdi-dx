@@ -21,8 +21,10 @@
 			dxGrid.parse(res,'js')
 		}}) 
 	});
+		
 </script>
 <body>
 	<div id="dxGrid" style="width:100%;height:100%"></div>
+	<div><button>Click</button></div>
 </body>
 </html>

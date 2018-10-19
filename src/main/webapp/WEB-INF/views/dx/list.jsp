@@ -19,12 +19,23 @@
 		au.send({url:'/login',success:function(res){
 			res = JSON.parse(res);
 			dxGrid.parse(res,'js')
-		}}) 
+		}})
 	});
 		
 </script>
 <body>
 	<div id="dxGrid" style="width:100%;height:100%"></div>
-	<div><button>Click</button></div>
+	<div><button onclick="goDelete()">회원정보수정</button> <button onclick="goUpdate()">회원정보삭제</button> </div>
+	<script>
+	function goUpdate(){
+		
+		
+	}
+	
+	function goDelete(){
+		alert("gd");
+		
+	}
+	</script>
 </body>
 </html>

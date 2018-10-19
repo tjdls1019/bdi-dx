@@ -12,11 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
-	
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/tjdls1019/bdi-dx.git
+
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public @ResponseBody Map<String,String> login(@RequestBody Map<String,String> user){
 		Map<String,String> rMap = new HashMap<String,String>();
@@ -26,7 +22,7 @@ public class UserController {
 			return rMap;
 		}
 		
-		if(user.get("id").equals(user)) {
+		if(user.get("id").equals("test1")) {
 			if(user.get("pwd").equals("test1")) {
 				rMap.put("login", "success");
 				rMap.put("msg","로그인 되었습니다.");

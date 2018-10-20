@@ -1,6 +1,7 @@
 package com.bdi.sp.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,14 +35,19 @@ public class LoginController {
 		return ls.getLogin(linum);
 	}
 	
-	@RequestMapping(value="/login/{linum}", method=RequestMethod.POST)
-	public @ResponseBody int insertLogin(@RequestBody Login li, @PathVariable Integer linum) {
+	@RequestMapping(value="/signup", method=RequestMethod.POST)
+	public @ResponseBody Map<String,String> insertLogin(@RequestBody Login li) {
 		logger.debug("login=>{}", li);
 		return ls.insertLogin(li);
 	}
+	@RequestMapping(value="/login", method=RequestMethod.POST)
+	public @ResponseBody Map<String,String> loginCheck(@RequestBody Login li) {
+		logger.debug("login=>{}", li);
+		return ls.loginCheck(li);
+	}
 	
-	@RequestMapping(value="/login/{linum}", method=RequestMethod.PUT)
-	public @ResponseBody int updateLogin(@RequestBody Login li, @PathVariable Integer linum) {
+	@RequestMapping(value="/login", method=RequestMethod.PUT)
+	public @ResponseBody Map<String,String> updateLogin(@RequestBody Login li) {
 		logger.debug("login=>{}", li);
 		return ls.updateLogin(li);
 	}

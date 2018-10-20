@@ -6,9 +6,9 @@
 	<select id="selectLoginList" resultType="com.bdi.sp.vo.Login">
 	select linum as id, l.* from login_info l
 	<where>
-	<if test="linum!=null"> and linum=#{linum}</if>
+	
 	<if test="liname!=null"> and liname=#{liname}</if>
-	<if test="liid!=null"> and liid=#{liid}</if>
+	
 	<if test="lipwd1!=null"> and lipwd1=#{lipwd1}</if>
 	<if test="lipwd2!=null"> and lipwd2=#{lipwd2}</if>
 	<if test="liemail!=null"> and liemail=#{liemail}</if>
@@ -21,8 +21,12 @@
 	
 	<select id="selectLogin" resultType="com.bdi.sp.vo.Login">
   	select * from login_info
-  	where linum=#{linum}
-  </select>
+  	<where>
+  	<if test="linum!=null"> and linum=#{linum}</if>
+  	<if test="liid!=null"> and liid=#{liid}</if>
+  	<if test="lipwd1!=null"> and lipwd1=#{lipwd1}</if>
+  	</where>
+    </select>
   
   <insert id="insertLogin" parameterType="com.bdi.sp.vo.Login">
   insert into login_info(liid,liname,lipwd1,lipwd2,liemail,liaddress,lisex,libirth,lire)
@@ -49,5 +53,7 @@
   	delete from login_info
   	where linum=#{linum} 
   </delete>
+
+  
   
 </mapper>

@@ -38,6 +38,17 @@ public class LoginDAOImpl implements LoginDAO{
 	public int deleteLogin(int linum) {
 		return ss.delete("Login.deleteLogin",linum);
 	}
+
+	@Override
+	public Login dupcheck(Login li) {
+		
+		return ss.selectOne("Login.selectLogin",li);
+	}
+
+	@Override
+	public Login fhrmdlstlfvo(Login li) {
+		return ss.selectOne("Login.selectLogin",li);
+	}
 	
 
 }

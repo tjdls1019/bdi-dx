@@ -22,6 +22,7 @@
 			list:[
 				{type:'input',name:'name',label:'NAME',required:true},
 				{type:'input',name:'id',label:'ID',validate:'ValidAplhaNumeric',required:true},
+				{type:'button',name:'btnz',value:'중복확인하자'},
 				{type:'password',name:'pwd',label:'PWD',validate:'ValidAplhaNumeric',required:true},
 				{type:'password',name:'pwdcheck',label:'PWD CHECK',validate:'ValidAplhaNumeric',required:true},
 				{type:'input',name:'email',label:'EMAIL',required:true},
@@ -43,6 +44,7 @@
 		
 		var dxForm = new dhtmlXForm('dxForm',forms)
 		dxForm.attachEvent('onButtonClick',function(name) {
+			
 			if(name=='join'){
 				if(!dxWin){
 					dxWin = new dhtmlXWindows();
@@ -62,22 +64,51 @@
 							var sex = joinForm.getItemValue('sex');
 							var birth = joinForm.getItemValue('birth');
 							var recommender = joinForm.getItemValue('recommender');
+							
 							if(sex==null) {
 								alert("성별을 체크해주세요");
 							}
 							var conf = {
-									url:'/login/${linum}',
+									url:'/signup',
 									method:'POST',
-									param:JSON.stringify({name:name,id:id,pwd:pwd,pwdcheck:pwdcheck,email:email,
-										address:address,gender:gender,birth:birth,recommender:recommender}),
+									param:JSON.stringify({liname:name,liid:id,lipwd1:pwd,lipwd2:pwdcheck,liemail:email,
+										liaddress:address,lisex:sex,libirth:birth,lire:recommender}),
 									success : function(res){
 										res = JSON.parse(res);
 										alert(res.msg);
+										if(res.success=="success"){
+											location.href="/uri/dx/login";
+										}
 									}
 							}
+							
 							au.send(conf);
 							}
-						}
+						}else if(name=='btnz'){
+							var as =document.getElementsByClassName('dhxform_textarea');
+						//	console.log(document.getElementsByClassName('dhxform_textarea')); 클래네임으로 엘리먼트 집합을 가져옴.
+						//	console.log(as[1]); //배열이므로 [숫자]붙여서 엘리먼트화;
+							var wnsmsrkqt= as[1].value;
+							if(wnsmsrkqt!=''){
+								var conf = {
+										url:'/wndqhr',
+										method:'POST',
+										param:JSON.stringify({liid:wnsmsrkqt}),
+										success : function(res){ // {"uiid":"df"}
+											res = JSON.parse(res);
+											console.log(res.success);
+										}
+								};
+								au.send(conf); //a(); a;
+								
+							}else{
+								alert('응 빈킨이야');
+							}
+						
+							}
+							
+						
+						
 					})
 				}
 			}else if(name=='login'){
@@ -95,10 +126,13 @@
 							var conf = {
 									url:'/login',
 									method:'POST',
-									param:JSON.stringify({id:id,pwd:pwd}),
+									param:JSON.stringify({liid:id,lipwd1:pwd}),
 									success : function(res){
 										res = JSON.parse(res);
 										alert(res.msg);
+										if(res.hoyoung=="tjdrhd"){
+											location.href="/uri/dx/list"
+										}
 									}
 							}
 							au.send(conf);

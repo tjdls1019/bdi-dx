@@ -11,4 +11,6 @@ public interface LoginDAO {
 	public int insertLogin(Login li);
 	public int updateLogin(Login li);
 	public int deleteLogin(int linum);
+	public Login dupcheck(Login li);
+	public Login fhrmdlstlfvo(Login li);
 }

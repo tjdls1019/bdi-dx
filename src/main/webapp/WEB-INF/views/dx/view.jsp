@@ -8,7 +8,7 @@
 </head>
 <script>
 function UpdateAndDelete(){
-	var	liFormData = [{type:'fieldset',name:'sign',label:'',inputwidth:'auto',
+	var	liFormData = [{type:'fieldset',name:'sign',label:'Update',inputwidth:'auto',
 			list:[
 				{type:'input',name:'id',label:'ID',value:'${li.liid}',validate:'ValidAplhaNumeric',required:true},
 				{type:'input',name:'name',label:'NAME',value:'${li.liname}',required:true},
@@ -20,15 +20,15 @@ function UpdateAndDelete(){
 				{type:'input',name:'birth',label:'BIRTH',value:'${li.libirth}',validate:'ValidAplhaNumeric',required:true},
 				{type:'input',name:'re',label:'R.E',value:'${li.lire}',validate:'ValidAplhaNumeric',required:true},
 				{type:'button',name:'update',value:'수정하기'},
-				{type:'button',name:'delete',value:'삭제하기'},
+				{type:'button',name:'delete',value:'삭제하기'}
 			]
 		}];
 	var	liForm;
-	scForm = new dhtmlXForm('divFormData',liFormData);
-	scForm.attachEvent('onButtonClick',function(name){
+	liForm = new dhtmlXForm('divFormData',liFormData);
+	liForm.attachEvent('onButtonClick',function(name){
 		var id = scForm.getItemValue('id');
 		if(name=='update'){
-			if(scForm.validate()){
+			if(liForm.validate()){
 				var id = liForm.getItemValue('id');
 				var name = liForm.getItemValue('name');
 				var pwd1 = liForm.getItemValue('pwd1');
@@ -65,8 +65,8 @@ function UpdateAndDelete(){
 				}else{
 					alert('삭제에 실패하였습니다.');
 				}
-			}});
-	});
+			}})
+	})
 	
 }
 window.addEventListener('load',UpdateAndDelete);

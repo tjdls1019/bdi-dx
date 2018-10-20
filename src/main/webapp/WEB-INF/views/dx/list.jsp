@@ -20,6 +20,31 @@
 			res = JSON.parse(res);
 			dxGrid.parse(res,'js')
 		}})
+		
+		dxGrid.attachEvent("onEditCell", function(stage,rId,cInd,nValue,oValue){
+			var keyArr= ['linum','liname','liid','liemail','liaddress','lisex','libirth','lire'];
+		   if(stage==2){	
+			   var data ={};
+			   var key = keyArr[cInd];//'lilsex'
+			 
+			   
+			   data[key] = nValue;
+			
+			   	console.log(dxGrid.cellById(rId, cInd));
+			  // console.log(data);// {lisex:"남",linum:"1(숫자)"}
+			   var conf = {
+						url:'/login',
+						method:'PUT',
+						param:JSON.stringify(data),
+						success : function(res){ // {"uiid":"df"}
+							res = JSON.parse(res);
+							console.log(res.success);
+						}
+				};
+				au.send(conf); //a(); a;
+		   }
+		   return true;
+		});
 	});
 		
 </script>

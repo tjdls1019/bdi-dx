@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
 	
-<<<<<<< HEAD
-	
-=======
->>>>>>> branch 'master' of https://github.com/tjdls1019/bdi-dx.git
+
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public @ResponseBody Map<String,String> login(@RequestBody Map<String,String> user){
 		Map<String,String> rMap = new HashMap<String,String>();

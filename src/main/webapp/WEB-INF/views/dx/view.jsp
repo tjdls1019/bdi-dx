@@ -24,11 +24,11 @@ function UpdateAndDelete(){
 			]
 		}];
 	var	liForm;
-	scForm = new dhtmlXForm('divFormData',liFormData);
-	scForm.attachEvent('onButtonClick',function(name){
-		var id = scForm.getItemValue('id');
+	liForm = new dhtmlXForm('divFormData',liFormData);
+	liForm.attachEvent('onButtonClick',function(name){
+		var id = liForm.getItemValue('id');
 		if(name=='update'){
-			if(scForm.validate()){
+			if(liForm.validate()){
 				var id = liForm.getItemValue('id');
 				var name = liForm.getItemValue('name');
 				var pwd1 = liForm.getItemValue('pwd1');
@@ -66,7 +66,7 @@ function UpdateAndDelete(){
 					alert('삭제에 실패하였습니다.');
 				}
 			}});
-	});
+	});ss
 	
 }
 window.addEventListener('load',UpdateAndDelete);

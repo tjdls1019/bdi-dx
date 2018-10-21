@@ -36,8 +36,8 @@ public class HomeController {
 		
 		String formattedDate = dateFormat.format(date);
 		
-		model.addAttribute("serverTime", formattedDate );
-		model.addAttribute("jList", ss.selectList("com.bdi.sp.JapanMapper.selectJapanList"));
+		//model.addAttribute("serverTime", formattedDate );
+		//model.addAttribute("jList", ss.selectList("com.bdi.sp.JapanMapper.selectJapanList"));
 		
 		return "home";
 	}
